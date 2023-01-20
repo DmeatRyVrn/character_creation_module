@@ -2,27 +2,31 @@ from random import randint
 
 
 def attack(char_name, char_class):
+    attack_value = 5
     if char_class == 'warrior':
-        attack_value = 5 + randint(3, 5)
+        attack_value += randint(3, 5)
         return (f'{char_name} нанёс урон противнику равный {attack_value}')
     if char_class == 'mage':
-        attack_value = 5 + randint(5, 10)
+        attack_value += randint(5, 10)
         return (f'{char_name} нанёс урон противнику равный {attack_value}')
     if char_class == 'healer':
-        attack_value = 5 + randint(-3, -1)
+        attack_value += randint(-3, -1)
         return (f'{char_name} нанёс урон противнику равный {attack_value}')
+    return attack_value
 
 
 def defence(char_name, char_class):
+    defence_value = 10
     if char_class == 'warrior':
-        defence_value = 10 + randint(5, 10)
+        defence_value += randint(5, 10)
         return (f'{char_name} блокировал {defence_value} урона')
     if char_class == 'mage':
-        defence_value = 10 + randint(-2, 2)
+        defence_value += randint(-2, 2)
         return (f'{char_name} блокировал {defence_value} урона')
     if char_class == 'healer':
-        defence_value = 10 + randint(2, 5)
+        defence_value += randint(2, 5)
         return (f'{char_name} блокировал {defence_value} урона')
+    return defence_value
 
 
 def special(char_name, char_class):
@@ -38,6 +42,7 @@ def special(char_name, char_class):
         special_value = 10 + 30
         return (f'{char_name} применил специальное умение '
                 f'«Защита {special_value}»')
+    return (f'{char_name} не применил специальное умение')
 
 
 def start_training(char_name, char_class):
